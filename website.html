@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Data</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Vehicle list styles */
+        #vehicle-list {
+            margin-top: 20px;
+        }
+
+        #vehicle-specs {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #vehicle-specs li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vehicle Specifications</h1>
+    </header>
+
+    <main>
+        <section id="vehicle-list">
+            <h2>Vehicle Data</h2>
+            <ul id="vehicle-specs">
+                <!-- Vehicle data will be displayed here -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vehicle Data</p>
+    </footer>
+
+    <script>
+        // Sample vehicle data
+        const vehicleData = [
+            {
+                make: "Toyota",
+                model: "Camry",
+                year: 2025,
+                engine: "2.5L 4-Cylinder",
+                fuelEconomy: "28/39 MPG"
+            },
+            {
+                make: "Toyota",
+                model: "Corolla",
+                year: 2025,
+                engine: "1.8L 4-Cylinder",
+                fuelEconomy: "30/38 MPG"
+            },
+            {
+                make: "Toyota",
+                model: "RAV4",
+                year: 2025,
+                engine: "2.5L 4-Cylinder",
+                fuelEconomy: "27/35 MPG"
+            }
+        ];
+
+        // Function to load and display vehicle data
+        function loadVehicleData() {
+            const vehicleList = document.getElementById("vehicle-specs");
+
+            // Clear any existing content
+            vehicleList.innerHTML = "";
+
+            vehicleData.forEach(vehicle => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <strong>${vehicle.make} ${vehicle.model} (${vehicle.year})</strong>
+                    <ul>
+                        <li>Engine: ${vehicle.engine}</li>
+                        <li>Fuel Economy: ${vehicle.fuelEconomy}</li>
+                    </ul>
+                `;
+                vehicleList.appendChild(li);
+            });
+        }
+
+        // Load the data when the page is ready
+        window.onload = loadVehicleData;
+    </script>
+</body>
+</html>
+
